@@ -25,6 +25,7 @@
 hs_err_pid*
 
 # TODO: Python's gitignore
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
