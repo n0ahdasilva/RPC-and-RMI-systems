@@ -1,0 +1,242 @@
+[
+    {
+        "seat_number": 1,
+        "ticket_class": "business",
+        "available": true,
+        "ticket_price": 500,
+        "availability_price": null,
+        "passenger_name": null
+    },
+    {
+        "seat_number": 2,
+        "ticket_class": "business",
+        "available": true,
+        "ticket_price": 500,
+        "availability_price": null,
+        "passenger_name": null
+    },
+    {
+        "seat_number": 3,
+        "ticket_class": "business",
+        "available": true,
+        "ticket_price": 500,
+        "availability_price": null,
+        "passenger_name": null
+    },
+    {
+        "seat_number": 4,
+        "ticket_class": "business",
+        "available": true,
+        "ticket_price": 500,
+        "availability_price": null,
+        "passenger_name": null
+    },
+    {
+        "seat_number": 5,
+        "ticket_class": "business",
+        "available": true,
+        "ticket_price": 500,
+        "availability_price": null,
+        "passenger_name": null
+    },
+    {
+        "seat_number": 6,
+        "ticket_class": "economy",
+        "available": true,
+        "ticket_price": 300,
+        "availability_price": null,
+        "passenger_name": null
+    },
+    {
+        "seat_number": 7,
+        "ticket_class": "economy",
+        "available": true,
+        "base_ticket_price": 500,
+        "availability_price": null,
+        "passenger_name": null
+    },
+    {
+        "seat_number": 8,
+        "ticket_class": "economy",
+        "available": true,
+        "base_ticket_price": 500,
+        "availability_price": null,
+        "passenger_name": null
+    },
+    {
+        "seat_number": 9,
+        "ticket_class": "economy",
+        "available": true,
+        "base_ticket_price": 500,
+        "availability_price": null,
+        "passenger_name": null
+    },
+    {
+        "seat_number": 10,
+        "ticket_class": "economy",
+        "available": true,
+        "base_ticket_price": 500,
+        "availability_price": null,
+        "passenger_name": null
+    },
+    {
+        "seat_number": 11,
+        "ticket_class": "economy",
+        "available": true,
+        "base_ticket_price": 500,
+        "availability_price": null,
+        "passenger_name": null
+    },
+    {
+        "seat_number": 12,
+        "ticket_class": "economy",
+        "available": true,
+        "base_ticket_price": 500,
+        "availability_price": null,
+        "passenger_name": null
+    },
+    {
+        "seat_number": 13,
+        "ticket_class": "economy",
+        "available": true,
+        "base_ticket_price": 500,
+        "availability_price": null,
+        "passenger_name": null
+    },
+    {
+        "seat_number": 14,
+        "ticket_class": "economy",
+        "available": true,
+        "base_ticket_price": 500,
+        "availability_price": null,
+        "passenger_name": null
+    },
+    {
+        "seat_number": 15,
+        "ticket_class": "economy",
+        "available": true,
+        "base_ticket_price": 500,
+        "availability_price": null,
+        "passenger_name": null
+    },
+    {
+        "seat_number": 16,
+        "ticket_class": "economy",
+        "available": true,
+        "base_ticket_price": 500,
+        "availability_price": null,
+        "passenger_name": null
+    },
+    {
+        "seat_number": 17,
+        "ticket_class": "economy",
+        "available": true,
+        "base_ticket_price": 500,
+        "availability_price": null,
+        "passenger_name": null
+    },
+    {
+        "seat_number": 18,
+        "ticket_class": "economy",
+        "available": true,
+        "base_ticket_price": 500,
+        "availability_price": null,
+        "passenger_name": null
+    },
+    {
+        "seat_number": 19,
+        "ticket_class": "economy",
+        "available": true,
+        "base_ticket_price": 500,
+        "availability_price": null,
+        "passenger_name": null
+    },
+    {
+        "seat_number": 20,
+        "ticket_class": "economy",
+        "available": true,
+        "base_ticket_price": 500,
+        "availability_price": null,
+        "passenger_name": null
+    },
+    {
+        "seat_number": 21,
+        "ticket_class": "economy",
+        "available": true,
+        "base_ticket_price": 500,
+        "availability_price": null,
+        "passenger_name": null
+    },
+    {
+        "seat_number": 22,
+        "ticket_class": "economy",
+        "available": true,
+        "base_ticket_price": 500,
+        "availability_price": null,
+        "passenger_name": null
+    },
+    {
+        "seat_number": 23,
+        "ticket_class": "economy",
+        "available": true,
+        "base_ticket_price": 500,
+        "availability_price": null,
+        "passenger_name": null
+    },
+    {
+        "seat_number": 24,
+        "ticket_class": "economy",
+        "available": true,
+        "base_ticket_price": 500,
+        "availability_price": null,
+        "passenger_name": null
+    },
+    {
+        "seat_number": 25,
+        "ticket_class": "economy",
+        "available": true,
+        "base_ticket_price": 500,
+        "availability_price": null,
+        "passenger_name": null
+    },
+    {
+        "seat_number": 26,
+        "ticket_class": "economy",
+        "available": true,
+        "base_ticket_price": 500,
+        "availability_price": null,
+        "passenger_name": null
+    },
+    {
+        "seat_number": 27,
+        "ticket_class": "economy",
+        "available": true,
+        "base_ticket_price": 500,
+        "availability_price": null,
+        "passenger_name": null
+    },
+    {
+        "seat_number": 28,
+        "ticket_class": "economy",
+        "available": true,
+        "base_ticket_price": 500,
+        "availability_price": null,
+        "passenger_name": null
+    },
+    {
+        "seat_number": 29,
+        "ticket_class": "economy",
+        "available": true,
+        "base_ticket_price": 500,
+        "availability_price": null,
+        "passenger_name": null
+    },
+    {
+        "seat_number": 30,
+        "ticket_class": "economy",
+        "available": true,
+        "base_ticket_price": 500,
+        "availability_price": null,
+        "passenger_name": null
+    }
+]

@@ -4,8 +4,8 @@
 #   FILENAME : rsvserver.py
 # 
 #   DESCRIPTION :
-#       Looking at the difference between a client-server network application using the
-#       Remote Procedure Call (RPC) and the Remote Method Invocation (RMI) systems.
+#       Client-server network application using the Remote Procedure Call 
+#       (RPC) systems.
 # 
 #   FUNCTIONS :
 #       main()
