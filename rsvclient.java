@@ -63,7 +63,7 @@ public class rsvclient
                 }
                 // Lookup method to find the reference of the remote object.
                 Rsv r_obj = (Rsv) Naming.lookup("rmi://" + args[1] + ":1900/reservation");
-                System.out.println(r_obj.reserve());
+                System.out.println(r_obj.reserve(args[2], args[3], Integer.valueOf(args[4])));
             }
             // If the clients wants to list the reserved/booked seat(s).
             else if (args[0].equals("passenger_list"))

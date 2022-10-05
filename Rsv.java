@@ -31,10 +31,10 @@ import java.util.List;
 public interface Rsv extends Remote
 {
     // Declaring the method prototypes.
-    public String list() throws RemoteException;
-    public String reserve() throws RemoteException;
-    public String passenger_list() throws RemoteException;
-
-    Seat find_seat(Seat n) throws RemoteException;
+    Seat find_seat(Seat seat) throws RemoteException;
     List<Seat> all_seats() throws RemoteException;
+
+    public String list() throws RemoteException;
+    public String reserve(String ticket_class, String passenger_name, int seat_number) throws RemoteException;
+    public String passenger_list() throws RemoteException;
 }

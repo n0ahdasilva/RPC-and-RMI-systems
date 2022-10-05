@@ -29,8 +29,6 @@ import java.rmi.registry.*;
 import java.util.*;
 import java.util.function.Predicate;
 
-import javax.crypto.SealedObject;
-
 
 public class rsvserver  extends UnicastRemoteObject
                         implements Rsv
@@ -63,37 +61,36 @@ public class rsvserver  extends UnicastRemoteObject
     private static List<Seat> initialize_list()
     {
         List<Seat> list = new ArrayList<>();
-        list.add(new Seat(1, "business", true, 500, 500, null));
-        list.add(new Seat(2, "business", true, 500, 500, null));
-        list.add(new Seat(3, "business", true, 500, 500, null));
-        list.add(new Seat(4, "business", true, 500, 500, null));
-        list.add(new Seat(5, "business", true, 500, 500, null));
-        list.add(new Seat(6, "economy", true, 200, 200, null));
-        list.add(new Seat(7, "economy", true, 200, 200, null));
-        list.add(new Seat(7, "economy", true, 200, 200, null));
-        list.add(new Seat(8, "economy", true, 200, 200, null));
-        list.add(new Seat(9, "economy", true, 200, 200, null));
-        list.add(new Seat(10, "economy", true, 200, 200, null));
-        list.add(new Seat(11, "economy", true, 200, 200, null));
-        list.add(new Seat(12, "economy", true, 200, 200, null));
-        list.add(new Seat(13, "economy", true, 200, 200, null));
-        list.add(new Seat(14, "economy", true, 200, 200, null));
-        list.add(new Seat(15, "economy", true, 200, 200, null));
-        list.add(new Seat(16, "economy", true, 200, 200, null));
-        list.add(new Seat(17, "economy", true, 200, 200, null));
-        list.add(new Seat(18, "economy", true, 200, 200, null));
-        list.add(new Seat(19, "economy", true, 200, 200, null));
-        list.add(new Seat(20, "economy", true, 200, 200, null));
-        list.add(new Seat(21, "economy", true, 200, 200, null));
-        list.add(new Seat(22, "economy", true, 200, 200, null));
-        list.add(new Seat(23, "economy", true, 200, 200, null));
-        list.add(new Seat(24, "economy", true, 200, 200, null));
-        list.add(new Seat(25, "economy", true, 200, 200, null));
-        list.add(new Seat(26, "economy", true, 200, 200, null));
-        list.add(new Seat(27, "economy", true, 200, 200, null));
-        list.add(new Seat(28, "economy", true, 200, 200, null));
-        list.add(new Seat(29, "economy", true, 200, 200, null));
-        list.add(new Seat(30, "economy", true, 200, 200, null));
+        list.add(new Seat(1, "business", true, 500, null));
+        list.add(new Seat(2, "business", true, 500, null));
+        list.add(new Seat(3, "business", true, 500, null));
+        list.add(new Seat(4, "business", true, 500, null));
+        list.add(new Seat(5, "business", true, 500, null));
+        list.add(new Seat(6, "economy", true, 200, null));
+        list.add(new Seat(7, "economy", true, 200, null));
+        list.add(new Seat(8, "economy", true, 200, null));
+        list.add(new Seat(9, "economy", true, 200, null));
+        list.add(new Seat(10, "economy", true, 200, null));
+        list.add(new Seat(11, "economy", true, 200, null));
+        list.add(new Seat(12, "economy", true, 200, null));
+        list.add(new Seat(13, "economy", true, 200, null));
+        list.add(new Seat(14, "economy", true, 200, null));
+        list.add(new Seat(15, "economy", true, 200, null));
+        list.add(new Seat(16, "economy", true, 200, null));
+        list.add(new Seat(17, "economy", true, 200, null));
+        list.add(new Seat(18, "economy", true, 200, null));
+        list.add(new Seat(19, "economy", true, 200, null));
+        list.add(new Seat(20, "economy", true, 200, null));
+        list.add(new Seat(21, "economy", true, 200, null));
+        list.add(new Seat(22, "economy", true, 200, null));
+        list.add(new Seat(23, "economy", true, 200, null));
+        list.add(new Seat(24, "economy", true, 200, null));
+        list.add(new Seat(25, "economy", true, 200, null));
+        list.add(new Seat(26, "economy", true, 200, null));
+        list.add(new Seat(27, "economy", true, 200, null));
+        list.add(new Seat(28, "economy", true, 200, null));
+        list.add(new Seat(29, "economy", true, 200, null));
+        list.add(new Seat(30, "economy", true, 200, null));
         return list;
     }
 
@@ -102,17 +99,142 @@ public class rsvserver  extends UnicastRemoteObject
      */
     public String list()
     {
-        return "TEST";
+        String available_seat_list = "";            // List output.
+        String b_seat_numbers = "seat numbers: ";   // Available business seat numbers.
+        String e_seat_numbers = "seat numbers: ";   // Available business seat numbers.
+        
+        int business_t1 = 0;
+        int business_t2 = 0;
+
+        int economy_t1 = 0;
+        int economy_t2 = 0;
+        int economy_t3 = 0;
+
+        try
+        {
+            List<Seat> list = all_seats();
+
+            for (int i = 0; i < list.size(); i++)
+            {
+                Seat seat = list.get(i);
+
+                if (seat.get_seat_number() <= 5)
+                {
+                    if ((business_t2 < 2) && seat.get_available())
+                    {
+                        business_t2++;
+                        b_seat_numbers += seat.get_seat_number() + ", ";
+                    }
+                    else if (seat.get_available())
+                    {
+                        business_t1++;
+                        b_seat_numbers += seat.get_seat_number() + ", ";
+                    }
+                }
+                else
+                {
+                    if ((economy_t3 < 5) && seat.get_available())
+                    {
+                        economy_t3++;
+                        e_seat_numbers += seat.get_seat_number() + ", ";
+                    }
+                    else if ((economy_t2 < 10) && seat.get_available())
+                    {
+                        economy_t2++;
+                        e_seat_numbers += seat.get_seat_number() + ", ";
+                    }
+                    else if (seat.get_available())
+                    {
+                        economy_t1++;
+                        e_seat_numbers += seat.get_seat_number() + ", ";
+                    }
+                }
+            }
+
+            if (business_t2 > 0)
+                available_seat_list += "business class:\n";
+            if (business_t1 > 0)
+                available_seat_list += business_t1 + " seat(s) at $500 each\n";
+            if (business_t2 > 0)
+            {
+                available_seat_list += business_t2 + " seat(s) at $800 each\n";
+                available_seat_list += b_seat_numbers + "\n";
+            }
+
+            if (economy_t3 > 0)
+                available_seat_list += "economy class:\n";
+            if (economy_t1 > 0)
+                available_seat_list += economy_t1 + " seat(s) at $200 each\n";
+            if (economy_t2 > 0)
+                available_seat_list += economy_t2 + " seat(s) at $300 each\n";
+            if (economy_t3 > 0)
+            {
+                available_seat_list += economy_t3 + " seat(s) at $450 each\n";
+                available_seat_list += e_seat_numbers + "\n";
+            }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return available_seat_list;
     }
     
-    public String reserve()
+    public String reserve(String ticket_class, String passenger_name, int seat_number)
     {
-        return "TEST";
+        String message = "";
+
+        try
+        {
+            List<Seat> list = all_seats();
+
+            if ((seat_number < 1) || (seat_number > 30))
+                return "Failed to reserve: invalid seat number";
+
+            Seat seat = list.get(seat_number - 1);
+
+            if (!seat.get_ticket_class().equals(ticket_class))
+                return "Failed to reserve: invalid seat number";
+            if (!seat.get_available())
+                return "Failed to reserve: seat not available";
+            else
+            {
+                seat.set_passenger_name(passenger_name);
+                seat.set_available(false);
+                message = "Successfully reserved seat #" + seat.get_seat_number() + " for passenger " + passenger_name + "\n";
+            }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return message;
     }
 
     public String passenger_list()
     {
-        return "TEST";
+        String taken_seat_list = "";            // List output.
+
+        try
+        {
+            List<Seat> list = all_seats();
+
+            for (int i = 0; i < list.size(); i++)
+            {
+                Seat seat = list.get(i);
+
+                if (!seat.get_available())
+                {
+                    taken_seat_list += seat.get_passenger_name() + " "
+                        + seat.get_ticket_class() + " " + seat.get_seat_number() + "\n";
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return taken_seat_list;
     }
 
     /*
@@ -143,7 +265,6 @@ class Seat
     private String ticket_class;
     private Boolean available;
     private int ticket_price;
-    private int availability_price;
     private String passenger_name;
 
     /*
@@ -158,14 +279,12 @@ class Seat
                 String ticket_class,
                 Boolean available,
                 int ticket_price,
-                int availability_price,
                 String passenger_name)
     {
         this.seat_number = seat_number;
         this.ticket_class = ticket_class;
         this.available = available;
         this.ticket_price = ticket_price;
-        this.availability_price = availability_price;
         this.passenger_name = passenger_name;
     }
 
@@ -211,16 +330,6 @@ class Seat
     public void set_ticket_price(int ticket_price)
     {
         this.ticket_price = ticket_price;
-    }
-
-    // Availability price.
-    public int get_availability_price()
-    {
-        return availability_price;
-    }
-    public void set_availability_price(int availability_price)
-    {
-        this.availability_price = availability_price;
     }
 
     // Passenger name.
