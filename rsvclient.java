@@ -23,25 +23,20 @@
  *  0.0.1a      2022.10.03  Noah            Creation of project.
  */
 
+import java.rmi.*;      // Provides remote communication between Java programs
 
-import java.rmi.*;
-
-
-public class rsvclient 
+public class rsvclient  // Create rsvclient class
 {  
-    /*
-     *  Main function.
-     */
-    public static void main(String[] args)
+    public static void main(String[] args) // main() function
     {
         try
-        {   // Check if the clien entered arguments.
+        {   // Check if the client entered any arguments.
             if (!(args.length > 0))
-            {
+            {   // The client program ends, informing the client on the syntax error.
                 System.out.println("Invalid numbers of arguments.");
                 return;
             }
-            // If the client wants to list available seats.
+            // Check if the client wants to list all available seats.
             if (args[0].equals("list"))
             {   // Verify that there is all 2 arguments.
                 if (args.length != 2)
@@ -51,7 +46,7 @@ public class rsvclient
                 }
                 // Lookup method to find the reference of the remote object.
                 Rsv r_obj = (Rsv) Naming.lookup("rmi://" + args[1] + ":1900/reservation");
-                System.out.println(r_obj.list());
+                System.out.println(r_obj.list());   // Print list of available seats
             }
             // If the client wants to reserve/book seat(s).
             else if (args[0].equals("reserve"))
@@ -75,16 +70,16 @@ public class rsvclient
                 }
                 // Lookup method to find the reference of the remote object.
                 Rsv r_obj = (Rsv) Naming.lookup("rmi://" + args[1] + ":1900/reservation");
-                System.out.println(r_obj.passenger_list());
+                System.out.println(r_obj.passenger_list()); // Print list of reserved/booked seats
             }
-            // The client did not enter a valid command.
+            // If the client did not enter a valid command.
             else
             {
                 System.out.println("The command '" + args[0] + "' is invalid.");
             }
         }
         catch (Exception e)
-        {   // If an error has occured, let's print it to the screen.
+        {   // If an error has occured, print it to the screen.
             e.printStackTrace();
         }
     }
